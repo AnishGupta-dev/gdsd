@@ -1,6 +1,5 @@
-/* General Styles */
 body {
-    font-family: 'Adiro', cursive; /* Use the same font for the entire layout */
+    font-family: 'Adiro', cursive;
     margin: 0;
     padding: 20px;
     background-color: #000000;
@@ -22,42 +21,49 @@ body {
     padding: 20px;
     color: white;
     font-size: 24px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 }
 
-/* Upper Section Layout */
+.box span {
+    position: absolute;
+    white-space: nowrap;
+    transition: transform 0.5s ease-in-out;
+}
+
 .upper-section {
     display: flex;
-    height: 60vh; /* Upper section takes 60% of screen height */
+    height: 60vh;
     gap: 11px;
 }
 
 .box-pink {
-    background-color: #FF6B7A;
+    background: linear-gradient(45deg, #FF6B7A, #FF8E8E);
     border-top-left-radius: 15px;
-    flex: 27; /* 27% width */
+    flex: 27;
 }
 
 .box-brown {
-    background-color: transparent; /* Remove background color for outer brown box */
-    flex: 33; /* 33% width */
+    background: transparent;
+    flex: 33;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-/* Number and Name Vertically Aligned */
 .info-container {
     display: flex;
-    flex-direction: column; /* Stack number and name vertically */
+    flex-direction: column;
     height: 100%;
     width: 100%;
-    gap: 10px; /* Space between number and name sections */
+    gap: 10px;
 }
 
 .info-number {
-    background-color: #3D2B27; /* Brown background for number */
-    flex: 40; /* 40% height */
+    background: linear-gradient(45deg, #3D2B27, #654321);
+    flex: 40;
     color: white;
     display: flex;
     justify-content: center;
@@ -68,13 +74,13 @@ body {
 }
 
 .info-name {
-    background-color: #E0E0E0; /* Grey background for name */
-    flex: 60; /* 60% height */
+    background: linear-gradient(45deg, #E0E0E0, #B0B0B0);
+    flex: 60;
     color: black;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3vw; /* Scales based on viewport width */
+    font-size: 3vw;
     text-align: center;
     max-width: 100%;
     width: 100%;
@@ -85,40 +91,53 @@ body {
 }
 
 .box-purple {
-    background-color: #514789;
+    background: linear-gradient(45deg, #514789, #7A5CFF);
     border-top-right-radius: 15px;
-    flex: 30; /* 30% width */
+    flex: 30;
 }
 
-/* Lower Section Layout */
 .lower-section {
     display: flex;
-    height: 30vh; /* Lower section takes 30% of screen height */
+    height: 30vh;
     gap: 11px;
 }
 
 .box-green {
-    background-color: #044A10;
+    background: linear-gradient(45deg, #044A10, #0A7A1C);
     font-size: 48px;
     border-bottom-left-radius: 15px;
-    flex: 56; /* 56% width */
+    flex: 56;
 }
 
 .box-dark-brown {
-    background-color: #3D2B27;
+    background: linear-gradient(45deg, #3D2B27, #654321);
     font-size: 32px;
     border-bottom-right-radius: 15px;
-    flex: 34; /* 34% width */
+    flex: 34;
 }
 
-/* Icon Styling */
 .icon {
     width: 25%;
     height: 25%;
     object-fit: contain;
 }
 
-/* Responsive Design */
+.box:hover {
+    transform: scale(1.1);
+    background-color: #444;
+    box-shadow: 0 4px 8px rgba(252, 251, 251, 0.3);
+}
+
+.box:hover span {
+    transform: translateX(-100%);
+}
+
+.box:active {
+    transform: scale(0.9);
+    background-color: #222;
+    box-shadow: 0 2px 4px rgba(247, 246, 246, 0.2);
+}
+
 @media (max-width: 768px) {
     .layout-container {
         flex-direction: column;
@@ -129,7 +148,6 @@ body {
         flex-direction: column;
         height: auto;
     }
-
     .box {
         flex: 1;
     }
